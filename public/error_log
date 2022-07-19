@@ -1,0 +1,1 @@
+[13-Jul-2022 10:59:22 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.20. in /home/qc5j2mjuf7ku/public_html/dev.arfideveloper.com/mhm/vendor/composer/platform_check.php on line 24
