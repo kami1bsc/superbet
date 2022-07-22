@@ -77,13 +77,10 @@ class AuthController extends Controller
             
             if(!auth()->attempt($loginData))
             {
-                if($request->expectsJson())
-                {
-                    return response()->json([
-                        'status' => false,
-                        'message' => 'Invalid Credentials',
-                    ], 200);
-                }           
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Invalid Credentials',
+                ], 200);
             } 
                     
             if($request->has('token'))

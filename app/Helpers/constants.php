@@ -8,6 +8,6 @@
 	{
 		define('IMAGE_URL', 'http://127.0.0.1:8000/');
 	}else{
-		define('IMAGE_URL', 'http://dev.arfideveloper.com/mhm/public/');
+		define('IMAGE_URL', 'http://shanzycollection.com/superbet/public/');
 	}
 ?>

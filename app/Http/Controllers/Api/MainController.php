@@ -40,7 +40,7 @@ class MainController extends Controller
               
             $token = $stripe->tokens->create([
                 'card' => [
-                  'number' => $request->card_number,
+                  'number' => '4242424242424242',
                   'exp_month' => $request->exp_month,
                   'exp_year' => $request->exp_year,
                   'cvc' => $request->cvv,
@@ -54,7 +54,7 @@ class MainController extends Controller
                 "currency" => "USD",
                 "source" => $token->id,
                 "description" => "Bet Payment",
-                // 'capture' => false,
+                'capture' => false,
             ]);
 
             if($pay->status == 'succeeded')
@@ -70,7 +70,21 @@ class MainController extends Controller
                 $bet->save();
 
                 $bet1 = Bet::where('id', $bet->id)->first();
+                
+                $bet1->second_player_id = "";
+                $bet1->second_player_avatar_id = "";
+                $bet1->winner_id = "";
+                
+                if($bet1->first_player_avatar_id != null)
+                {
+                    $avatar = Avatar::where('id', $bet1->first_player_avatar_id)->first();
+                    $bet1->first_player_avatar = IMAGE_URL.$avatar->avatar_image;
+                }else{
+                    $bet1->first_player_avatar = "";
+                }
 
+                $bet1->second_player_avatar = "";
+                
                 return response()->json([
                     'status' => true,
                     'message' => 'Bet Created Successfully',
@@ -103,7 +117,7 @@ class MainController extends Controller
               
             $token = $stripe->tokens->create([
                 'card' => [
-                  'number' => $request->card_number,
+                  'number' => '4242424242424242',
                   'exp_month' => $request->exp_month,
                   'exp_year' => $request->exp_year,
                   'cvc' => $request->cvv,
@@ -117,7 +131,7 @@ class MainController extends Controller
                 "currency" => "USD",
                 "source" => $token->id,
                 "description" => "Bet Payment",
-                // 'capture' => false,
+                'capture' => false,
             ]);
 
             if($pay->status == 'succeeded')
@@ -175,12 +189,28 @@ class MainController extends Controller
             {
                 $bet->first_player_avatar = IMAGE_URL.$avatar1->avatar_image;
             }
-
-            $avatar2 = Avatar::where('id', $bet->second_player_avatar_id)->first('avatar_image');
             
-            if(!empty($avatar2))
+            if($bet->second_player_id == null)
             {
-                $bet->second_player_avatar = IMAGE_URL.$avatar2->avatar_image;
+                $bet->second_player_id = "";
+            }
+
+            if(!empty($bet->second_player_avatar_id))
+            {
+                $avatar2 = Avatar::where('id', $bet->second_player_avatar_id)->first('avatar_image');
+            
+                if(!empty($avatar2))
+                {
+                    $bet->second_player_avatar = IMAGE_URL.$avatar2->avatar_image;
+                }    
+            }else{
+                $bet->second_player_avatar_id = "";
+                $bet->second_player_avatar = "";
+            }
+
+            if($bet->winner_id == null)
+            {
+                $bet->winner_id = "";
             }
 
             return response()->json([
@@ -221,6 +251,7 @@ class MainController extends Controller
                         'status' => true,
                         'message' => 'Bet Found',
                         'data' => [
+                            'id' => $bet->id,
                             'status' => $bet->bet_status
                         ],
                     ], 200);    
@@ -248,7 +279,7 @@ class MainController extends Controller
 
     public function select_winner($bet_id, $winner_id)
     {
-        try{
+        // try{
             $user = User::where('id', $winner_id)->first();
 
             if(empty($user))
@@ -268,25 +299,124 @@ class MainController extends Controller
                     'message' => 'Bet has already been Completed',
                 ], 200);
             }
+            
+            //Stripe payment
+            
+            $player1_amount = (($bet->first_player_bet_amount * 1) / 100);
+            
+            $player_amount1 =  $bet->first_player_bet_amount - $player1_amount;
+            
+            $player2_amount = (($bet->second_player_bet_amount * 1) / 100);
+            
+            $player_amount2 =  $bet->first_player_bet_amount - $player2_amount;
+            
+            $win_amount = $player_amount1 + $player_amount2;
+            
+            // $stripe = new \Stripe\StripeClient('sk_test_BHlJPzC6PloLo7ELEKksI1uy00LlQbLa2X');
 
-            $bet->winner_id = $winner_id;
-            $bet->bet_status = 'completed';
-            $bet->save();
+            // $pay = $stripe->charges->capture($bet->first_player_payment_id, []);
+            // $pay1 = $stripe->charges->capture($bet->second_player_payment_id, []);
+            
+            // if($pay->status == 'succeeded' && $pay1->status == 'succeeded')
+            // {
+                 //if payment captured
+                 
+                //  \Stripe\Stripe::setApiKey('sk_test_BHlJPzC6PloLo7ELEKksI1uy00LlQbLa2X');
 
-            $user->wallet_balance = $user->wallet_balance + ($bet->first_player_bet_amount + $bet->second_player_bet_amount);
-            $user->save();
+                // // //Create a Transfer to a connected account (later):
+                // $transfer = \Stripe\Transfer::create([
+                //   'amount' => 100 * (int)$win_amount,
+                //   'currency' => 'USD',
+                //   'destination' => $user->stripe_id,
+                //   'transfer_group' => 'Superbet Payment',
+                // ]);
+                
+                // if($transfer->amount_reversed == 0)
+                // {
+                    $bet->winner_id = $winner_id;
+                    $bet->bet_status = 'completed';
+                    $bet->save();
+        
+                    $user->wallet_balance = $user->wallet_balance + $win_amount;
+                    $user->save();
+                // }
+            // }
+            
+            //End Stripe payment
 
             return response()->json([
                 'status' => true,
                 'message' => $user->name.' has won the bet',
             ], 200);
             
+        // }catch(\Exception $e)
+        // {
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => 'There is some trouble to proceed your action',
+        //     ], 200);
+        // }
+    }
+    
+    public function update_stripe_account(Request $request)
+    {
+        try{
+            $user = User::where('id', $request->user_id)->first();
+            
+            if(empty($user))
+            {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'User does not Exists',
+                ], 200);
+            }
+            
+            if($request->has('stripe_id') && $request->stripe_id != "")
+            {
+                $user->stripe_id = $request->stripe_id;
+            }
+            
+            $user->save();
+            
+            return response()->json([
+                'status' => true,
+                'message' => 'Stripe Account Saved',
+            ], 200);
         }catch(\Exception $e)
         {
             return response()->json([
                 'status' => false,
-                'message' => 'There is some trouble to proceed your action',
+                'message' => 'There is some trouble to proceed your action'
             ], 200);
         }
+    }
+    
+    public function create_connect_account(Request $request)
+    {
+        $stripe = new \Stripe\StripeClient('sk_test_BHlJPzC6PloLo7ELEKksI1uy00LlQbLa2X');
+        
+        $account = $stripe->accounts->create([
+		  'type' => 'express',
+		  //'country' => 'US',
+		  'email' => $request->email,
+		  'capabilities' => [
+			'card_payments' => ['requested' => true],
+			'transfers' => ['requested' => true],
+// 			'legacy_payments' => ['requested' => true],
+		  ],
+		  'business_type' => 'individual',
+		  //'business_profile' => ['url' => 'https://example.com'],
+		]);
+		$accountId = $account->id;
+		
+		return $accountId;
+    }
+    
+    public function cash_out($user_id)
+    {
+        return response()->json([
+            'status' => true,
+            'message' => 'Cashout Successfully'
+        ], 200);
     }
 }

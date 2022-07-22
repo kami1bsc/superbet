@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\MainController;
+use App\Http\Controllers\Api\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,12 @@ Route::post('update-bet', [MainController::class, 'update_bet']);
 Route::get('bet-details/{bet_id}', [MainController::class, 'bet_details']);
 Route::get('bet-status/{user_id}', [MainController::class, 'bet_status']);
 Route::get('select-winner/{bet_id}/{winner_id}', [MainController::class, 'select_winner']);
+Route::post('update-stripe-account', [MainController::class, 'update_stripe_account']);
+Route::get('cash_out/{user_id}', [MainController::class, 'cash_out']);
+
+//Stripe Routes
+Route::post('get_account_details', [StripeController::class, 'get_account_details']);
+Route::post('create_connect_account', [MainController::class, 'create_connect_account']);
+
+
+
