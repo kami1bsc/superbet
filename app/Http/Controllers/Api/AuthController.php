@@ -50,6 +50,12 @@ class AuthController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
+            
+            if($request->has('token') && $request->token != "")
+            {
+                $user->token = $request->token;
+            }
+            
             $user->save();
 
             return response()->json([
@@ -104,4 +110,33 @@ class AuthController extends Controller
         //     ], 200);
         // }        
     }   
+    
+    public function logout($user_id)
+    {
+        try{
+            $user = User::where('id', $user_id)->first();
+            
+            if(empty($user))
+            {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'User does not Exists',
+                ]);
+            }
+            
+            $user->token = "";
+            $user->save();
+            
+            return response()->json([
+                'status' => true,
+                'message' => 'Logged Out'
+            ]);
+        }catch(\Exception $e)
+        {
+            return response()->json([
+                'status' => false,
+                'message' => 'There is some trouble to proceed your action',
+            ], 200);
+        }
+    }
 }

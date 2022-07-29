@@ -31,7 +31,8 @@
                                     <th>ID</th>                        
                                     <th>Name</th>                                        
                                     <th>Email</th>                                      
-                                    <th>Phone</th>                                                                                  
+                                    <th>Wallet Balance</th>
+                                    <th>Stripe ID</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,25 +41,27 @@
                                     <th>ID</th>                        
                                     <th>Name</th>                                        
                                     <th>Email</th>                                      
-                                    <th>Phone</th>                                                                                  
+                                    <th>Wallet Balance</th>
+                                    <th>Stripe ID</th>                                                                                 
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach($users as $user)                            
+                                @foreach($users as $user)
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone }}</td>                                
-                                        <td>                                            
+                                        <td>{{ $user->wallet_balance }}</td>
+                                        <td>{{ $user->stripe_id }}</td>
+                                        <td>
                                             <div class = "col-md-6 col-6">
                                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method = "POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <button type = "submit" name = "submit" value = "submit" onclick = "return confirm('Do You Really Want to Delete?')" class = "btn btn-sm btn-circle btn-outline-primary" style = "margin-left: -10px;"><i class = "fa fa-trash"></i></button>
                                                 </form>
-                                            </div>                                            
+                                            </div> 
                                         </td>
                                     </tr>
                                 @endforeach

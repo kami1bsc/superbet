@@ -12,137 +12,130 @@
 <!-- Content Row -->
 <div class="row">
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Users</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {{ $total_users }}
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-primary shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">-->
+    <!--                        Users</div>-->
+    <!--                    <div class="h5 mb-0 font-weight-bold text-gray-800">-->
+    <!--                        0-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-users fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Categories</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {{ $total_categories }}
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-list fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-success shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">-->
+    <!--                        Categories</div>-->
+    <!--                    <div class="h5 mb-0 font-weight-bold text-gray-800">-->
+    <!--                        0-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-list fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Albums
-                        </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                    {{ $total_albums }}
-                                </div>
-                            </div>
-                            <!--<div class="col">-->
-                            <!--    <div class="progress progress-sm mr-2">-->
-                            <!--        <div class="progress-bar bg-info" role="progressbar"-->
-                            <!--            style="width: 50%" aria-valuenow="50" aria-valuemin="0"-->
-                            <!--            aria-valuemax="100"></div>-->
-                            <!--    </div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-video fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-info shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Albums-->
+    <!--                    </div>-->
+    <!--                    <div class="row no-gutters align-items-center">-->
+    <!--                        <div class="col-auto">-->
+    <!--                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">-->
+    <!--                                0-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-video fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Videos</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {{ $total_videos }}
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-video fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-warning shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">-->
+    <!--                        Videos</div>-->
+    <!--                    <div class="h5 mb-0 font-weight-bold text-gray-800">-->
+    <!--                        0-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-video fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 </div>
 
 <div class="row">
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Majlis Updates</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {{ $total_majlis }}
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-bullhorn fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-warning shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">-->
+    <!--                        Majlis Updates</div>-->
+    <!--                    <div class="h5 mb-0 font-weight-bold text-gray-800">-->
+    <!--                        0-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-bullhorn fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-dark shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Lyrics</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {{ $total_lyrics }}
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-sticky-note fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="col-xl-3 col-md-6 mb-4">-->
+    <!--    <div class="card border-left-dark shadow h-100 py-2">-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row no-gutters align-items-center">-->
+    <!--                <div class="col mr-2">-->
+    <!--                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">-->
+    <!--                        Lyrics</div>-->
+    <!--                    <div class="h5 mb-0 font-weight-bold text-gray-800">-->
+    <!--                        0-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-auto">-->
+    <!--                    <i class="fas fa-sticky-note fa-2x text-gray-300"></i>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Earnings (Monthly) Card Example -->
     <!-- <div class="col-xl-3 col-md-6 mb-4">
@@ -307,8 +300,9 @@
                                     <tr>
                                         <th>ID</th>                        
                                         <th>Name</th>                                        
-                                        <th>Email</th>                                      
-                                        <th>Phone</th>                                                                                  
+                                        <th>Email</th>
+                                        <th>Wallet Balance</th>
+                                        <th>Stripe ID</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -316,8 +310,9 @@
                                     <tr>
                                         <th>ID</th>                        
                                         <th>Name</th>                                        
-                                        <th>Email</th>                                      
-                                        <th>Phone</th>                                                                                  
+                                        <th>Email</th>
+                                        <th>Wallet Balance</th>
+                                        <th>Stripe ID</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -327,15 +322,23 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->wallet_balance }}</td>
+                                            <td>{{ $user->stripe_id }}</td>
                                             <td>
-                                                <div class = "col-md-6 col-6">
-                                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method = "POST">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('DELETE') }}
-                                                        <button type = "submit" name = "submit" value = "submit" onclick = "return confirm('Do You Really Want to Delete?')" class = "btn btn-sm btn-circle btn-outline-primary" style = "margin-left: -10px;"><i class = "fa fa-trash"></i></button>
-                                                    </form>
-                                                </div> 
+                                                <div class = "row">
+                                                    <div class = "col-md-6">
+                                                        <div class = "col-md-6 col-6">
+                                                            <form action="{{ route('admin.users.destroy', $user->id) }}" method = "POST">
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                                <button type = "submit" name = "submit" value = "submit" onclick = "return confirm('Do You Really Want to Delete?')" class = "btn btn-sm btn-circle btn-outline-primary"><i class = "fa fa-trash"></i></button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "col-md-6">
+                                                        <a href="{{ route('admin.edit_user', $user->id) }}" class = "btn btn-sm btn-circle btn-outline-primary"><i class = "fa fa-edit"></i></a>    
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

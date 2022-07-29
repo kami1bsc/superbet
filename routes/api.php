@@ -34,10 +34,13 @@ Route::get('bet-status/{user_id}', [MainController::class, 'bet_status']);
 Route::get('select-winner/{bet_id}/{winner_id}', [MainController::class, 'select_winner']);
 Route::post('update-stripe-account', [MainController::class, 'update_stripe_account']);
 Route::get('cash_out/{user_id}', [MainController::class, 'cash_out']);
+Route::get('delete_bet/{bet_id}', [MainController::class, 'delete_bet']);
+Route::get('logout/{user_id}', [AuthController::class, 'logout']);
 
 //Stripe Routes
 Route::post('get_account_details', [StripeController::class, 'get_account_details']);
 Route::post('create_connect_account', [MainController::class, 'create_connect_account']);
+Route::get('delete_connect_account', [MainController::class, 'delete_connect_account']);
 
 
 

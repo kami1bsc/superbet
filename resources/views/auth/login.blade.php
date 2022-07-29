@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mir Hasan Mir</title>
+    <title>Superbet</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('fav1.png') }}">
 
     <!-- Custom fonts for this template-->

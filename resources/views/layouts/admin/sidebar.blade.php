@@ -98,53 +98,6 @@
         <span>Users</span></a>
 </li>
 
-<!-- Nav Item - Charts -->
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.categories.index') }}">
-        <i class="fas fa-fw fa-list"></i>
-        <span>Categories</span></a>
-</li>
-
-<!-- Nav Item - Tables -->
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.albums.index') }}">
-        <i class="fas fa-fw fa-list"></i>
-        <span>Albums</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.videos.index') }}">
-        <i class="fas fa-fw fa-video"></i>
-        <span>Videos</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.majlis.index') }}">
-        <i class="fas fa-fw fa-bullhorn"></i>
-        <span>Majlis Updates</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.banners.index') }}">
-        <i class="fas fa-fw fa-bullhorn"></i>
-        <span>Banners Images</span></a>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cogs"></i>
-        <span>Screen Management</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-           
-            <a class="collapse-item" href="{{ route('admin.top-section.index') }}">Top Section</a>
-            <a class="collapse-item" href="{{ route('admin.month') }}">Month Name</a>
-            <a class="collapse-item" href="{{ route('admin.month-kalam.index') }}">Month Kalam</a>
-            <a class="collapse-item" href="{{ route('admin.trending.index') }}">Trending</a>
-            <a class="collapse-item" href="{{ route('admin.nohay-singles.index') }}">Nohay Singles</a>
-            <a class="collapse-item" href="{{ route('admin.manqabat-singles.index') }}">Manqabat Singles</a>
-        </div>
-    </div>
-</li>
 
 <!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"

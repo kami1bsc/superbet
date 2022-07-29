@@ -15,4 +15,11 @@ class Bet extends Model
         'created_at',
         'updated_at',
     ];   
+    
+    protected $casts = [
+        'first_player_id' => 'string',
+        'first_player_avatar_id' => 'string',
+        'second_player_id' => 'string',
+        'second_player_avatar_id' => 'string',
+    ];
 }
